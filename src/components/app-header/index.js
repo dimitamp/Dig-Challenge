@@ -13,7 +13,7 @@ fontSize, system, space
 } from 'styled-system';
 import useWindowSize from '@rehooks/window-size';
 
-const Brand = styled.img.attrs({src: require('../../../assets/dig_logo_white.png')})`
+const Brand = styled.img.attrs({src: require('../../../assets/dig_logo_white.png'),})`
   object-fit: cover;
   height: 3.5em;
   cursor: pointer;
@@ -100,7 +100,7 @@ export const Component = () => {
     <StyledNavbar>
       <StyledNavbarGroup align="left" width="30%">
         <StyledNavbarHeading fontSize={[0, 3, 6]}>
-          <Brand />
+          <Brand onClick={() =>  window.location.replace('https://digitalinsurance.io')} />
         </StyledNavbarHeading>
       </StyledNavbarGroup>
       <StyledNavbarGroup

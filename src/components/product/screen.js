@@ -78,7 +78,7 @@ const StyledButton = styled.button.attrs(() => ({
 
 const Component = ({history}) => {
   const product = path(['location', 'state', 'product'], history);
-  const {title, description, price, images} = product;
+  const {title, description, price, images, specification} = product;
   const  [showingIndex, setShowingIndex] = useState(0);
   return (
     <ProductContainer>
@@ -107,6 +107,7 @@ const Component = ({history}) => {
           {title}
         </StyledTitle>
         <StyledDescription>{description}</StyledDescription>
+        <StyledDescription>{specification}</StyledDescription>
         <StyledPrice>{`${price}$`}</StyledPrice>
         <ButtonsContainer>
           <StyledButton>
