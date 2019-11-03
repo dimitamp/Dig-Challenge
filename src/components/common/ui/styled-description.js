@@ -9,6 +9,6 @@ const StyledDescription = styled.div.attrs( (props) => ({fontSize: props.fontSiz
   ${fontSize};
 `; 
 
-StyledDescription.defaultProps = {fontSize: [1, 3]};
+StyledDescription.defaultProps = {fontSize: [2, 3]};
 
 export default StyledDescription; 

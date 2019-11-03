@@ -100,8 +100,10 @@ const Component = ({history}) => {
         <ThumbnailsContainer>
           {images.map( (image, index) => (
             <Thumbnail 
-              style={{borderBottom: '1px solid #e0e0e0', cursor: 'pointer', margin: '10 20'}}
-              src={image.thumb} 
+              key={index}
+              style={{cursor: 'pointer', margin: '10 20'}}
+              active={index === showingIndex}
+              src={image.thumb}
               width={[60, 100]} 
               height={[60, 100]} 
               onClick={() => setShowingIndex(index)}
