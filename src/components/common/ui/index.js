@@ -7,3 +7,4 @@ export {default as StyledTitle} from './styled-title';
 export {default as StyledPrice} from './styled-price';
 export {default as Thumbnail} from './thumbnail';
 export {default as StyledDescription} from './styled-description';
+export {default as TextSection} from './text-section';

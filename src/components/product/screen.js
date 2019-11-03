@@ -7,7 +7,7 @@ import {
 space, layout, fontSize
 } from 'styled-system';
 import {
-StyledTitle, StyledPrice, StyledDescription, Thumbnail
+StyledTitle, StyledPrice, Thumbnail, TextSection
 } from '../common/ui';
 
 const ProductContainer = styled(Flex).attrs(() => ({
@@ -18,12 +18,12 @@ const ProductContainer = styled(Flex).attrs(() => ({
 
 const ProductSection = styled(Flex).attrs(() => ({
   width: [1, 1 / 2],
-  height: '100%',
   flexDirection: 'column',
   alignItems: 'center',
   p: [2, 4]
 }))`
-  ${layout}
+   minHeight: '100%';
+  ${layout};
   ${space};
 `;
 
@@ -54,9 +54,8 @@ const ThumbnailsContainer = styled(Flex).attrs(() => ({
 const ButtonsContainer = styled(Flex).attrs(() => ({width: 0.9, justifyContent: 'space-evenly'}))`
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50;
-  paddin
-  g: ${path(['theme', 'space', 2])};
+  margin-top: 30;
+  padding: ${path(['theme', 'space', 2])};
 `;
 
 const StyledButton = styled.button.attrs(() => ({
@@ -106,8 +105,8 @@ const Component = ({history}) => {
         >
           {title}
         </StyledTitle>
-        <StyledDescription>{description}</StyledDescription>
-        <StyledDescription>{specification}</StyledDescription>
+        <TextSection text={description} header="Description" />
+        <TextSection text={specification} header="Specification" />
         <StyledPrice>{`${price}$`}</StyledPrice>
         <ButtonsContainer>
           <StyledButton>
@@ -116,7 +115,6 @@ const Component = ({history}) => {
           <StyledButton>
           Add to cart
           </StyledButton>
-
         </ButtonsContainer>
       </ProductSection>
     </ProductContainer>

@@ -3,9 +3,9 @@ import {fontSize} from 'styled-system';
 
 const StyledDescription = styled.div.attrs( (props) => ({fontSize: props.fontSize}))`
   width: 100%;
-  text-align: center;
+  text-align: left;
   opacity: 0.8;
-  margin: 30 0;
+  margin-bottom: 30;
   ${fontSize};
 `; 
 
