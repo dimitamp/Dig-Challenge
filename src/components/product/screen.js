@@ -6,6 +6,7 @@ import {path} from 'ramda';
 import {
 space, layout, fontSize
 } from 'styled-system';
+import {Swipeable}from 'react-swipeable';
 import {
 StyledTitle, StyledPrice, Thumbnail, TextSection
 } from '../common/ui';
@@ -75,6 +76,11 @@ const StyledButton = styled.button.attrs(() => ({
  }
 `;
 
+
+const handlePrev = (index, length) => index - 1 < 0 ? length - 1 : index - 1;
+
+const handleNext = (index, length) => index + 1 === length ? 0 : index + 1;
+
 const Component = ({history}) => {
   const product = path(['location', 'state', 'product'], history);
   const {title, description, price, images, specification} = product;
@@ -82,9 +88,15 @@ const Component = ({history}) => {
   return (
     <ProductContainer>
       <ProductSection>
-        <OriginalImageContainer>
-          <OriginalImage alt="original image" src={path([showingIndex, 'original'], images)} />
-        </OriginalImageContainer>
+        <Swipeable
+          delta={100}
+          onSwipedLeft={() => { setShowingIndex(handleNext(showingIndex, images.length)) ; }}
+          onSwipedRight={() => { setShowingIndex(handlePrev(showingIndex, images.length)) ; }}
+        >
+          <OriginalImageContainer>
+            <OriginalImage alt="original image" src={path([showingIndex, 'original'], images)} />
+          </OriginalImageContainer>
+        </Swipeable>
         <ThumbnailsContainer>
           {images.map( (image, index) => (
             <Thumbnail 

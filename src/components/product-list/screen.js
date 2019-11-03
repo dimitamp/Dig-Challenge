@@ -13,7 +13,6 @@ const PreviewsSection = styled(Flex).attrs(() => ({
   justifyContent: 'center'
 }))``;
 
-
 export const Component = () => (
   <Fetcher action={getProducts} spinnerClass="verticalCenter"> 
     {(products) => (
